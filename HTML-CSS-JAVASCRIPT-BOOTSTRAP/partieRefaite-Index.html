@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+     <!-- Astuce :  Comment s'y prendre pour bien assimuler le cocepte de HTML CSS :
+         --------
+ imaginez une image se trouvans dans un card(shadow) possedant un header(titre) et un footer(annotation rating) : pour concevoir ce type de maquêtte vous avez deux possibilité :
+
+ - soit considerez l'image, le titre, et le rating comme étant une seul ligne, mais que chaqu'une des trois partie represente une colonne, et puis par la suite vous utiliser le sytème de wrap
+   pour casser les colonne afin que chaque colonne puisse revenir a la ligne avec du bootstrap on appelle cette propriété << wrap-100>>
+
+ -la seconde solution consiste a considerer chaqu'une des trois partis commme étant un ligne qui vont se suivre de manière successive -->
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partie refaite Selfie-Wookie</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+   
+<style>
+ 
+  /* personnal Astuce */
+  .debug{
+    border: 1px solid red;
+  }
+
+   *,::before,::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   }
+  /* Fin */
+
+  /* 1- généralement le Header et footer sont fixé */
+  .fixed{
+    position: fixed;
+  }
+ 
+/* 2-les Headers et footer sont généralement collé a leurs Bordure */
+.header{
+  top: 0px;
+}
+
+.footer{
+ bottom: 0px;
+}
+
+/* 3- Système de filtrage */
+.container{
+
+}
+.container .row{
+
+}
+
+.container .row .col{
+
+}
+
+.container .flexible{
+  display:flex;
+}
+
+/* Fin du Système*/
+
+.aumax{
+  width: 100%;
+}
+
+.mt-75{
+  margin: 75px;
+}
+.p-10{
+  padding: 10px;
+}
+
+/* Centré un élément par rapport à la taille de l'écran */
+.taille-ecran{
+   width: 1050px;
+}
+
+.auto-margin{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Fin */
+
+/* Responsive Design */
+  img{
+    height: auto;
+    width: 100%;
+  }
+  @media screen and (max-width:790px){
+
+   .taille-ecran{
+    width: 500px;
+   }
+       
+  }
+
+</style>
+
+</head>
+<body>
+  
+    <header >
+      <!-- headrer -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+      <!-- header -->
+    </header>
+
+    <main class="mt-75">
+      <section class="taille-ecran auto-margin">
+
+       <div class="container">
+        <div class="row">
+          <div class="col-sm-9">
+            <!-- first -->
+   <!-- considerez l'image, le titre, et le [..] comme étant une seul ligne, mais que chaqu'une des trois partie represente une colonne,
+     et puis par la suite vous utiliser le sytème de wrap pour casser les colonne -->
+   
+            <article class="row shadow pb-3 mb-2">
+              <header class="col">
+                <div class="row flexible">
+                  <div class="col">
+                    titre du selfie
+                  </div>
+                  <div class="col text-right">
+                      [...]
+                  </div>
+                </div>
+              </header>
+              <div class="w-100"></div>
+              <div class="col">
+                <img   src="./image/wookie-1.png" alt="wookie image"  class="img-fluid">  
+              </div>
+              <div class="w-100"></div>
+              <footer class="col">
+                  <div class="row">
+                    <i class="bi bi-heart-fill"></i>
+                    <i class="bi bi-heart-fill"></i>
+                    <i class="bi bi-heart-fill"></i>
+                  </div>
+                </footer>
+            </article>
+
+            <!-- second -->
+
+            <article class=" row shadow pb-3 mb-2">
+              <header class="col">
+                <div class="row">
+                  <div class="col">
+                    titre du selfie
+                  </div>
+      
+                  <div class="col text-right">
+                      [...]
+                  </div>
+                </div>
+              </header>
+              <div class="w-100"></div>
+              <div class="col flexible">
+                <img  class="img-fluid" src="./image/wookie-1.png" alt="wookie image" >  
+              </div>
+              <div class="w-100"></div>
+
+              <footer class="col">
+                <div class="d-flex">
+                  <i class="bi bi-heart-fill"></i>
+                  <i class="bi bi-heart-fill"></i>
+                  <i class="bi bi-heart-fill"></i>
+                </div>
+              </footer>
+          </article>
+          <!-- utilisation de la second Approche pour voir le resultat considerer chaqu'une des trois partis commme étant un ligne qui vont se suivre de manière successive -->
+          <article class="container shadow pb-3 mb-2">
+            <header class="row flexible">
+              <div class="col">Titre : Article</div>
+              <div class="col text-right">[....]</div>
+            </header>
+            <div class="row flexible">
+                <div class="col">
+                  <img   src="./image/wookie-1.png" alt="wookie image"  class="img-fluid">  
+                </div>
+            </div>
+            <footer class="row flexible">
+                  <div class="col">
+                    <i class="bi bi-heart-fill"></i>
+                  </div>
+                  <div class="col">
+                    <i class="bi bi-heart-fill"></i>
+                  </div>
+                  <div class="col">
+                    <i class="bi bi-heart-fill"></i>
+                  </div>
+            </footer>
+          </article>
+          </div>
+        
+          <div class="col-sm d-sm-none d-md-block">
+            Menu ++
+            <i style="color:red">A faire plus tard</i>
+          </div>
+        </div>
+       </div>
+      </section>
+    </main>
+
+    <footer class="fixed aumax footer p-10 border-top bg-light">
+      <!-- footer -->
+      <div class="d-flex">
+        <i class="bi bi-heart-fill"></i>
+        <i class="bi bi-heart-fill"></i>
+        <i class="bi bi-heart-fill"></i>
+     </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
