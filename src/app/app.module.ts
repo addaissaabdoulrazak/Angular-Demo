@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MenuGeneralComponent } from './shared/components/menu-general/menu-general.component';
 import { SelfieListComponent } from './features/selfies/selfie-list/selfie-list.component';
+import { SelfieReadonlyComponent } from './features/selfies/selfie-readonly/selfie-readonly.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuGeneralComponent,
     SelfieListComponent,
+    SelfieReadonlyComponent,
   ],
   imports: [
     BrowserModule,

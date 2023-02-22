@@ -1,7 +1,7 @@
 import { Wookie } from "./wookie";
 
 export class Selfie {
-    image : string | undefined;
+    image! : string ;
     wookie: Wookie ;
 
     /**
