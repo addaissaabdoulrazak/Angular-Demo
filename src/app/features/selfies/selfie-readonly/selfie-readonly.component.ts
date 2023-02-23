@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
+import { Selfie } from 'src/app/models/selfie';
 
 @Component({
   selector: 'app-selfie-readonly',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./selfie-readonly.component.css']
 })
 export class SelfieReadonlyComponent implements OnInit {
+  
+  @Input()
+  getSelfie! : Selfie;
 
   constructor() { }
 

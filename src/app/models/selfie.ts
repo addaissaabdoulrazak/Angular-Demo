@@ -3,6 +3,7 @@ import { Wookie } from "./wookie";
 export class Selfie {
     image! : string ;
     wookie: Wookie ;
+    titre!: string;
 
     /**
      *

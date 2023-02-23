@@ -13,12 +13,14 @@ lesSelfies : Selfie[]= [
   {
    image: '',
    wookie: {nom: 'naruto', selfies:[]},
+   titre : "naruto",
  },
 
  //object two
  {
   image: '',
   wookie: {nom: 'Sassuke',selfies:[]},
+  titre: 'sassuke'
 } 
 
 ];
