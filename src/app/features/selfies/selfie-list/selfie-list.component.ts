@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Selfie } from 'src/app/models/selfie';
 
 @Component({
@@ -24,6 +24,11 @@ lesSelfies : Selfie[]= [
 } 
 
 ];
+@Input()
+set filtre(value: string)
+{
+  console.log(value);
+}
   constructor() { }
 
   ngOnInit(): void {
