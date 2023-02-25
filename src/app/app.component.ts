@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { LoggerService } from './shared/services/logger/logger.service';
 
 @Component({
   selector: 'app-root',
@@ -10,9 +11,11 @@ export class AppComponent {
   data = '';
  
 
+  constructor(private _logger: LoggerService) { }
+
   rechercheItem(value: string)
   { 
-   console.log('Appcomponent', value);
+   this._logger.log(value);
     this.data=value;
   }
 }
