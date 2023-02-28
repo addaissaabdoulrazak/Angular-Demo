@@ -1,6 +1,10 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Self } from '@angular/core';
 import { LoggerService } from '../logger/logger.service';
 import { Selfie } from '../../../models/selfie';
+import { interval, Observable, of} from 'rxjs/';
+import { map, catchError } from 'rxjs/operators';
+
+
 
 
 @Injectable({
@@ -35,5 +39,65 @@ export class SelfieService {
     
     //this._logger.log("Affichage de notre Tableau");
     return tableau;
+  }
+
+  /**
+   * retourner une observable afin de pouvoir s'inscrire a la reception d'un tableau de wookie
+   * 
+   * cette methode est mise en place afin de pouvoir simuler de l'asynchrone(juste un simple test).
+   * 
+   * et pour simuler il vous faut un Observable raison pour laquelle notre function retourne un Observable
+   * 
+   * il est très Important d'indiquer toujour le type de données gérer par le tyaux(le flux).
+   * 
+   * et pour ce qui du retour d'un Observable on utilise la metodes of(type_de_données_que_va_retourner_notre_Observable)
+   * 
+   */
+  getAll_asObservable(): Observable<Selfie[]>{
+
+   const monTableau = this.getAll();
+
+    return of(monTableau);
+
+  };
+
+  /**
+   * nous allons Introduire une nouvelle notion en remplaçant l'operator Of() en Interval() qui d'ailleur renvoie des entiers
+   * 
+   * afin de profiter de la puissance de observable, puis profiter pour modifier les données emit par notre flux(tuyaux)
+   * 
+   * et ceci grâce a la notion methode pipe(), car au lieu des entiers nous voulons des données de type selfie 
+   * 
+   * mais cela doit 
+   */
+
+  getAll_asObserver_with_Intervale(): Observable<Selfie[]>{ 
+
+    const monTableau= this.getAll();
+
+     return interval(1000).pipe(map(entier=>[
+          // 1-
+          {
+         
+            image: "https://i.pinimg.com/550x/c7/e4/64/c7e464499c1b72eb57bc3286477c5ee3.jpg",
+            titre: "Sassuke en mode ..." + entier,
+            wookie:{
+              nom : "chewie 2",
+              selfies : [],
+            }
+          },
+
+          //2-
+          {
+         
+            image: "https://i.pinimg.com/originals/f0/1d/bc/f01dbc4b82496fd86428079d76c2f9c2.png",
+            titre: "Naruto en mode Ermite" + entier,
+            wookie:{
+              nom : "chewie 1",
+              selfies : [],
+            }
+          }
+
+     ]));
   }
 }

@@ -20,6 +20,7 @@ export class MenuGeneralComponent implements OnInit {
      //mnémotechnique : a travers l'evenement qui a été crée(EventSearch) emettre(emit()) une valeur(getInputValue)
      this.EventSearch.emit(getInputValue);
    }
+   
   constructor() { }
 
   ngOnInit(): void {
