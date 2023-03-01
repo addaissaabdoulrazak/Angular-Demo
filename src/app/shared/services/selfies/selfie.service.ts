@@ -3,6 +3,8 @@ import { LoggerService } from '../logger/logger.service';
 import { Selfie } from '../../../models/selfie';
 import { interval, Observable, of} from 'rxjs/';
 import { map, catchError } from 'rxjs/operators';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 
 
@@ -12,7 +14,7 @@ import { map, catchError } from 'rxjs/operators';
 })
 export class SelfieService {
 
-  constructor(private _logger : LoggerService) { }
+  constructor(private _logger : LoggerService, private _httpClient : HttpClient) { }
 
   /**
    * get All selfie liste(get Data in a Tableau)
@@ -99,5 +101,9 @@ export class SelfieService {
           }
 
      ]));
+  }
+  getAll_asObserver_with_HttpClient() : Observable<Selfie[]>{
+
+    return this._httpClient.get<Selfie[]>(environment.apis.selfies.url)
   }
 }

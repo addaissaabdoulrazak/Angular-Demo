@@ -48,13 +48,18 @@ set filtre(value: string)
       *   il faut avant tout s'inscrire
       * */ 
     
-    const Souscription_En_Cours= this.getSelfies.getAll_asObserver_with_Intervale().subscribe(tab => this.lesSelfies = tab);
+    const Souscription_En_Cours= this.getSelfies.getAll_asObservable().subscribe(tab => this.lesSelfies = tab);
 
     this.lesSouscription.push(Souscription_En_Cours);
   
 
   }
-     /** Cependant ce qu'il faut retenir est que pour toute Souscription il faut dessouscrire */
+     /** Cependant ce qu'il faut retenir est que pour toute Souscription il faut dessouscrire
+      * 
+      * Il s'agit du cycle de vie d'un composant (onInit, onDestroy, onUpdate, onRemove,) il y'en a plusieurs 
+      * 
+      * essayer de les decouvrir a travers la realisation des diverse projets
+      */
   ngOnDestroy(): void {
     this.lesSouscription.forEach(item=>item.unsubscribe());
   }
