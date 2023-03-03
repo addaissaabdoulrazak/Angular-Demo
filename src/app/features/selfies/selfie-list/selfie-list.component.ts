@@ -10,7 +10,9 @@ import { SelfieService } from '../../../shared/services/selfies/selfie.service';
   styleUrls: ['./selfie-list.component.css']
 })
 export class SelfieListComponent implements OnInit, OnDestroy {
+  
 
+  
   lesSouscription : Subscription[] =[]; 
 
 lesSelfies! : Selfie[]
@@ -64,4 +66,10 @@ set filtre(value: string)
     this.lesSouscription.forEach(item=>item.unsubscribe());
   }
 
+
+  public hideComponant = false;
+  entier = Number;
+  AffichageFormulaire() : void {
+
+  } 
 }
