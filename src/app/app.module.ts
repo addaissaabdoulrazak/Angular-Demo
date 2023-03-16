@@ -20,8 +20,9 @@ import { AddSelfieComponent } from './features/selfies/add-selfie/add-selfie.com
   ],
   imports: [
     BrowserModule,
+    HttpClientModule, 
     AppRoutingModule,
-    HttpClientModule,
+   
   ],
   providers: [],
   bootstrap: [AppComponent]

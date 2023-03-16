@@ -67,9 +67,16 @@ set filtre(value: string)
   }
 
 
-  public hideComponant = false;
-  entier = Number;
-  AffichageFormulaire() : void {
+  public hideComponant : Selfie = null as any;
 
+  Affichage_Formulaire_Pour_Ajouter_Un_Selfie() : void {
+    this.hideComponant =new Selfie();
   } 
+
+  Click_pour_Annuler_Selfie_Ajouter_Par_Formulaire() :void {
+
+     this.hideComponant = null as any;
+     console.log( JSON.stringify(this.hideComponant));
+  } 
+
 }
